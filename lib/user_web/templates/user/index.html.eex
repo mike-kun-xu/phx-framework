@@ -1,0 +1,14 @@
+<section class="phx-hero">
+  <p>User page</p>
+</section>
+
+<section class="row">
+  <article class="column">
+    <h2>Options</h2>
+    <ul>
+      <li>
+        <a href="/users/new">Create New Users</a>
+      </li>
+    </ul>
+  </article>
+</section>

@@ -1,9 +1,9 @@
 defmodule User do
-  @moduledoc """
-  User keeps the contexts that define your domain
-  and business logic.
+  alias User.Users
+  alias User.Repo
+  import Ecto.Changeset
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+
+
+
 end

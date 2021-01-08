@@ -15,14 +15,18 @@ defmodule UserWeb.Router do
 
   scope "/", UserWeb do
     pipe_through :browser
-
     get "/", PageController, :index
+    resources "/users", UserController, only: [:index, :show, :new, :create]
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", UserWeb do
-  #   pipe_through :api
-  # end
+   scope "/" do
+     pipe_through :api
+     forward "/graphiql", Absinthe.Plug.GraphiQL,
+     schema: UserWeb.Schema,
+     interface: :simple,
+     context: %{pubsub: UserWeb.Endpoint}
+   end
 
   # Enables LiveDashboard only for development
   #
