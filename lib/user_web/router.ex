@@ -7,6 +7,7 @@ defmodule UserWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug User.Authenticate, repo: User.Repo
   end
 
   pipeline :api do
@@ -16,7 +17,10 @@ defmodule UserWeb.Router do
   scope "/", UserWeb do
     pipe_through :browser
     get "/", PageController, :index
-    resources "/users", UserController, only: [:index, :show, :new, :create]
+    resources "/users", UserController, only: [:index, :new, :create]
+    get "/login", UserController, :login
+    post "/login", UserController, :login_do
+    get "/users/show", UserController, :show
   end
 
   # Other scopes may use custom stacks.

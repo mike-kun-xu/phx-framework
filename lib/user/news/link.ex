@@ -1,4 +1,5 @@
 defmodule User.News.Link do
+  use UserWeb, :model
   use Ecto.Schema
   import Ecto.Changeset
 

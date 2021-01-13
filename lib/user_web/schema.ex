@@ -13,4 +13,11 @@ defmodule UserWeb.Schema do
       resolve(&LinkResolver.all_links/3)
     end
   end
+  mutation do
+    field :create_link, :link do
+      arg :url, non_null(:string)
+      arg :description, non_null(:string)
+      resolve(&LinkResolver.create_link/3)
+    end
+  end
 end

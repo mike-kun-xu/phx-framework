@@ -9,6 +9,9 @@
       <li>
         <a href="/users/new">Create New Users</a>
       </li>
+      <li>
+        <a href="/users/show">List All Users</a>
+      </li>
     </ul>
   </article>
 </section>
