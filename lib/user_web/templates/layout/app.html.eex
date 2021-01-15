@@ -13,7 +13,12 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="/login">Log In</a></li>
+            <%= if @current_user do %>
+            <li><strong>Welcome </strong><%= @current_user.username %></li> 
+            <li><%= link "Log out", to: Routes.user_path(@conn, :delete, @current_user), method: "delete" %></li>
+            <% else %>
+            <li><%= link "Register", to: Routes.user_path(@conn, :new) %></li> <li><%= link "Log in", to: Routes.user_path(@conn, :login) %></li>
+            <% end %>
             <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
               <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
             <% end %>

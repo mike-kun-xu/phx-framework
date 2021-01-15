@@ -30,6 +30,11 @@ defmodule UserWeb.UserController do
         |> render("login.html")
     end
   end
+  def delete(conn, _) do
+  conn
+  |> Auth.logout()
+  |> redirect(to: Routes.user_path(conn, :index))
+  end
 
   def new(conn, _params) do
     changeset = Users.changeset(%Users{})

@@ -17,6 +17,9 @@ defmodule User.Authenticate do
     |> put_session(:user_id, user.id)
     |> configure_session(renew: true)
   end
+  def logout(conn) do
+    configure_session(conn, drop: true)
+  end
   def login_check(conn, user, pass, opts) do
     repo = Keyword.fetch!(opts, :repo)
     user = repo.get_by(Users, username: user)

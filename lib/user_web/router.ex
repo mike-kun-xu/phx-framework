@@ -17,7 +17,7 @@ defmodule UserWeb.Router do
   scope "/", UserWeb do
     pipe_through :browser
     get "/", PageController, :index
-    resources "/users", UserController, only: [:index, :new, :create]
+    resources "/users", UserController, only: [:index, :new, :create, :delete]
     get "/login", UserController, :login
     post "/login", UserController, :login_do
     get "/users/show", UserController, :show
